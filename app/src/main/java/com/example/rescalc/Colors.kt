@@ -49,6 +49,25 @@ enum class Colors {
             }
         }
 
+        fun getSelectedResource(color: Colors): Int {
+            return when(color) {
+                Colors.NONE -> R.drawable.resistor_color_none_selected
+                Colors.SILVER -> R.drawable.resistor_color_silver_selected
+                Colors.GOLD -> R.drawable.resistor_color_gold_selected
+                Colors.BLACK -> R.drawable.resistor_color_black_selected
+                Colors.BROWN -> R.drawable.resistor_color_brown_selected
+                Colors.RED -> R.drawable.resistor_color_red_selected
+                Colors.ORANGE -> R.drawable.resistor_color_orange_selected
+                Colors.YELLOW -> R.drawable.resistor_color_yellow_selected
+                Colors.GREEN-> R.drawable.resistor_color_green_selected
+                Colors.BLUE -> R.drawable.resistor_color_blue_selected
+                Colors.VIOLET -> R.drawable.resistor_color_violet_selected
+                Colors.GREY -> R.drawable.resistor_color_grey_selected
+                Colors.WHITE -> R.drawable.resistor_color_white_selected
+                else -> throw GetResourceError("")
+            }
+        }
+
         fun getResistance(color: Colors): Int {
             return when(color) {
                 Colors.BLACK -> 0

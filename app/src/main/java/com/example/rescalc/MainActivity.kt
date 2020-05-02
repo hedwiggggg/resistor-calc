@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var currentBandTuple: Pair<Button, Band>;
+    private lateinit var currentBandTuple: Pair<Button, Band>
     private var currentBandCount = BandCount.FOUR
     private var validColorChange = false
 
@@ -88,12 +88,22 @@ class MainActivity : AppCompatActivity() {
             R.array.resistor_colors,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            adapter.setDropDownViewResource(R.layout.color_selector_dropdown)
             colorSelector.adapter = adapter
         }
 
         // add item select listener
         colorSelector.onItemSelectedListener = handleColorSelected
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+
+        if (::currentBandTuple.isInitialized && hasFocus) {
+            val (_, type) = currentBandTuple
+            val currentColor = CurrentResistor.bands.getBand(type)
+            setBandColor(currentBandTuple, currentColor)
+        }
     }
 
     private val handleColorSelected = object : AdapterView.OnItemSelectedListener {
@@ -140,6 +150,10 @@ class MainActivity : AppCompatActivity() {
             val (button, type) = it
 
             button.setOnClickListener {
+                val currentColor = CurrentResistor.bands.getBand(type)
+                val resourceSelected = Colors.getSelectedResource(currentColor)
+                button.setBackgroundResource(resourceSelected)
+
                 changeCurrentBand(button, type)
             }
         }

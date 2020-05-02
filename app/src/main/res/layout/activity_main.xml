@@ -43,6 +43,7 @@
                 android:background="@drawable/resistor_type_chooser_selected"
                 android:text="@string/colors_4"
                 android:textColor="#FFFFFF"
+                android:fontFamily="monospace"
                 android:textSize="14sp" />
 
             <Button
@@ -58,6 +59,7 @@
                 android:background="@drawable/resistor_type_chooser"
                 android:text="@string/colors_5"
                 android:textColor="#FFFFFF"
+                android:fontFamily="monospace"
                 android:textSize="14sp" />
 
             <Button
@@ -73,6 +75,7 @@
                 android:background="@drawable/resistor_type_chooser"
                 android:text="@string/colors_6"
                 android:textColor="#FFFFFF"
+                android:fontFamily="monospace"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -173,10 +176,11 @@
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="168dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
+        android:popupBackground="@drawable/color_chooser"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -192,9 +196,9 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:typeface="monospace"
         android:ems="10"
         android:textColor="#FFFFFF"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
